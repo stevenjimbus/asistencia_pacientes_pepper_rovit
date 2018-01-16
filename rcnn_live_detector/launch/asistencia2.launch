@@ -1,0 +1,32 @@
+<launch>
+
+  <!-- call nodo speechrecognition -->  
+  <node pkg="rcnn_live_detector" type="reconocimientovoz.py" name="reconocimientovoz" output="screen">
+  </node>
+  
+  <!-- call nodo mapArea -->  
+  <node pkg="rcnn_live_detector" type="mapArea" name="mapArea" output="screen">
+  </node>
+
+  <!-- call nodo acercarseFino --> 
+  <node pkg="rcnn_live_detector" type="acercarseFino" name="acercarseFino" output="screen">
+  </node>
+
+  <!-- call nodo tomarObjeto --> 
+  <node pkg="rcnn_live_detector" type="tomarObjeto" name="tomarObjeto" output="screen">
+  </node>
+
+
+  <!-- call nodo mapAreaQR -->  
+  <node pkg="rcnn_live_detector" type="mapAreaQR" name="mapAreaQR" output="screen">
+  </node>
+
+  <!-- call nodo acercarseFinoQR --> 
+  <node pkg="rcnn_live_detector" type="acercarseFinoQR" name="acercarseFinoQR" output="screen">
+  </node>
+
+  <!-- call nodo dejarObjeto --> 
+  <node pkg="rcnn_live_detector" type="dejarObjeto" name="dejarObjeto" output="screen">
+  </node>  
+
+</launch>

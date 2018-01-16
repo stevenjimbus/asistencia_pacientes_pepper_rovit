@@ -1,0 +1,43 @@
+<launch>
+  
+   
+  <!-- openni2 -->
+  <!--include file="$(find openni2_launch)/launch/openni2.launch" /-->
+  
+  <arg name="_device_id"   default="0" />
+
+
+  <!-- classifier server -->
+  <node pkg="rcnn_live_detector" type="classifier_server.py" name="classifier_server" output="screen">
+  </node>
+
+
+    <!-- cloud_clusterer -->
+  <node pkg="rcnn_live_detector" type="rcnn_detector" name="rcnn_tagger" output="screen">
+  </node>
+  
+ <!--node pkg="rcnn_live_detector" type="reader_rcnn_detector" name="reader_rcnn_detector" output="screen">
+  </node-->
+
+  <!-- usb cam -->
+  <node name="cv_camera" pkg="cv_camera" type="cv_camera_node" output="screen"  args="$(arg _device_id)">
+    
+  </node>
+
+
+ <node name="img_throttler" type="throttle" pkg="topic_tools" 
+   args="messages /cv_camera/image_raw 1 /cv_camera/image_raw_th" />
+
+
+ <!-- image view     /camera/rgb/image_rect_color  -->
+  <node pkg="image_view" type="image_view" name="image_view" output="screen" >
+      <remap from="image" to="/objectDetected" />  
+      <param name="autosize" value="true"/>
+  </node>
+
+
+
+
+
+  
+</launch>

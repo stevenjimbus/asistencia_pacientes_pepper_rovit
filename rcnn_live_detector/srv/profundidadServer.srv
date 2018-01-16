@@ -1,0 +1,6 @@
+sensor_msgs/Image image
+rcnn_live_detector/PredictionsList tags
+---
+sensor_msgs/Image imageRespuestaDeServicio
+distance_msg[] distanceslist
+

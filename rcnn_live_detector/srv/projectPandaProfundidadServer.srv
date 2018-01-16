@@ -1,0 +1,4 @@
+sensor_msgs/Image image
+float64[] bbox
+---
+float64 distance_to_object
