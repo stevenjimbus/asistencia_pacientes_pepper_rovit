@@ -2,7 +2,7 @@
 ssh-add ~/.ssh/id_rsa
 echo "Push a github..."
 git add -A
-git commit -m "Fecha: $(date +%d-%b-%H_%M)"
+git commit -m "Date: $(date +%d/%b - %H:%M)"
 git push -u origin master
  
 
