@@ -1,0 +1,26 @@
+<launch>
+  
+   
+  <!-- ROS Naoqi Bridge -->
+  <include file="$(find pepper_kinetic)/launch/pepper.launch" />
+
+
+
+
+  <!-- call classifier server to jackson  launch-prefix="xterm -e"-->
+  <node pkg="rcnn_live_detector" type="classifier_server.py" name="classifier_jackson" output="screen">
+  </node>
+
+
+  <!-- Calculo profundidad server -->
+  <node pkg="rcnn_live_detector" type="servicioprofundidadProjectPanda" name="servicioprofundidadProjectPanda" output="screen">
+  </node>
+
+
+  <!-- Deteccion QR code server -->
+  <node pkg="rcnn_live_detector" type="qr_SERVICE" name="qr_SERVICE" output="screen">
+  </node>
+   
+
+
+</launch>
